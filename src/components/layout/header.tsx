@@ -1,25 +1,25 @@
-import dayjs from "dayjs";
+import Link from "next/link";
 
 import { Logo } from "@/components/common/logo";
-import { HeaderNavigation } from "./header-navigation";
+import { HeaderNavigation } from "@/components/layout/header-navigation";
+import { HeaderDateLabel } from "@/components/layout/header-date-label";
 
 export function Header() {
-  const currentMonth = dayjs().month();
-
   return (
     <header className="p-4 border-b">
       <nav className="flex items-center">
         <Logo />
         <div className="ml-32 flex items-center gap-8">
-          <button className="h-9 px-4 border border-gray-300 rounded text-sm font-medium">
+          <Link
+            href={"/month"}
+            className="h-9 px-4 border border-gray-300 rounded text-sm font-medium grid place-content-center transition duration-300 hover:bg-gray-100"
+          >
             Today
-          </button>
+          </Link>
           <div className="grid grid-cols-2">
             <HeaderNavigation />
           </div>
-          <span>
-            {dayjs(new Date(dayjs().year(), currentMonth)).format("MMMM YYYY")}
-          </span>
+          <HeaderDateLabel />
         </div>
       </nav>
     </header>
