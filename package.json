@@ -10,6 +10,7 @@
     "lint:check": "next lint",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
+    "format-lint": "npm run format && npm run lint",
     "prepare": "husky install"
   },
   "dependencies": {
