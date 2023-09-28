@@ -5,6 +5,12 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  classnames:
+    specifier: ^2.3.2
+    version: 2.3.2
+  dayjs:
+    specifier: ^1.11.10
+    version: 1.11.10
   next:
     specifier: latest
     version: 13.5.3(react-dom@18.2.0)(react@18.2.0)
@@ -874,6 +880,13 @@ packages:
       fsevents: 2.3.3
     dev: true
 
+  /classnames@2.3.2:
+    resolution:
+      {
+        integrity: sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==,
+      }
+    dev: false
+
   /client-only@0.0.1:
     resolution:
       {
@@ -947,6 +960,13 @@ packages:
         integrity: sha512-sdQSFB7+llfUcQHUQO3+B8ERRj0Oa4w9POWMI/puGtuf7gFywGmkaLCElnudfTiKZV+NvHqL0ifzdrI8Ro7ESA==,
       }
     dev: true
+
+  /dayjs@1.11.10:
+    resolution:
+      {
+        integrity: sha512-vjAczensTgRcqDERK0SR2XMwsF/tSvnvlv6VcF2GIhg6Sx4yOIt/irsr1RDJsKiIyBzJDpCoXiWWq28MqH2cnQ==,
+      }
+    dev: false
 
   /debug@3.2.7:
     resolution:

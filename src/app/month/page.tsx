@@ -1,3 +1,8 @@
+import { getMonthView } from "@/calendar/utils";
+import { MonthView } from "@/components/calendar-views";
+
 export default function MonthPage() {
-  return <section>Month Page</section>;
+  const month = getMonthView();
+
+  return <MonthView month={month} />;
 }
