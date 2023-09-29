@@ -1,9 +1,9 @@
 import Link from "next/link";
 
 import { Logo } from "@/components/common/logo";
-import { HeaderNavigation } from "@/components/layout/header-navigation";
-import { HeaderDateLabel } from "@/components/layout/header-date-label";
-import { HeaderTodayNavigation } from "@/components/layout/header-today-navigation";
+import { HeaderNavigation } from "@/components/layout/header/header-navigation";
+import { HeaderDateLabel } from "@/components/layout/header/header-date-label";
+import { HeaderTodayNavigation } from "@/components/layout/header/header-today-navigation";
 
 export function Header() {
   return (

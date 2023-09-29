@@ -2,7 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 
-import { Header } from "@/components/layout/header";
+import { Header, SideNav } from "@/components/layout";
 
 const font = Montserrat({ subsets: ["latin"] });
 
@@ -23,7 +23,7 @@ export default function RootLayout({
       >
         <Header />
         <main className="flex-1 flex">
-          <aside className="w-72 p-2">Create</aside>
+          <SideNav />
           <section className="flex-1">{children}</section>
         </main>
       </body>
