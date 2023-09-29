@@ -16,12 +16,11 @@ export function getMonthView(
   return daysMatrix;
 }
 
-export function getWeekView() {
-  const date = new Date();
+export function getWeekView(date = new Date()) {
   const year = date.getFullYear();
   const month = date.getMonth();
-  const dayOfWeek = date.getDay();
   const dayOfMonth = date.getDate();
+  const dayOfWeek = date.getDay();
   let currentWeekCount = 0 - dayOfWeek;
   const daysMatrix = new Array(numberOfDaysInWeek).fill(null).map(() => {
     currentWeekCount++;

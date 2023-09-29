@@ -16,7 +16,26 @@ export default function WeekPage({ params: { allParams } }: Props) {
 
   if (!currentYear || !currentMonth || !currentDay) redirect("/week");
 
-  const week = getWeekView();
+  // Check if year and date are valid and in the range of 1000-9999 for the year
+
+  let year = Number(currentYear);
+  let month = Number(currentMonth);
+  let day = Number(currentDay);
+  if (month > 12) {
+    month = 12;
+  }
+  if (month < 1) {
+    month = 1;
+  }
+  if (year > 9999) {
+    year = 9999;
+  }
+  if (year < 1000) {
+    year = 1000;
+  }
+
+  const date = new Date(year, month - 1, day);
+  const week = getWeekView(date);
 
   return <WeekView week={week} />;
 }

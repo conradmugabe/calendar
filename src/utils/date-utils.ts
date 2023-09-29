@@ -7,6 +7,15 @@ export function isToday(date: Date) {
   );
 }
 
+export function isTodaySelectedInWeek(date: Date) {
+  const today = new Date();
+  return (
+    date.getDate() === today.getDate() &&
+    date.getMonth() === today.getMonth() &&
+    date.getFullYear() === today.getFullYear()
+  );
+}
+
 export function isCurrentMonth(date: Date) {
   const today = new Date();
   return (
@@ -26,6 +35,14 @@ export function getNextDate(date: Date) {
 
 export function getPrevDate(date: Date) {
   return new Date(date.getFullYear(), date.getMonth(), date.getDate() - 1);
+}
+
+export function getNextWeek(date: Date) {
+  return new Date(date.getFullYear(), date.getMonth(), date.getDate() + 7);
+}
+
+export function getPrevWeek(date: Date) {
+  return new Date(date.getFullYear(), date.getMonth(), date.getDate() - 7);
 }
 
 export function getNextMonth(date: Date) {

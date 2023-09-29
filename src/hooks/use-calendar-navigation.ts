@@ -4,17 +4,21 @@ import { useCalendarUrl } from "@/hooks/use-calendar-url";
 import {
   getNextDate,
   getNextMonth,
+  getNextWeek,
   getNextYear,
   getPrevDate,
   getPrevMonth,
+  getPrevWeek,
   getPrevYear,
   isCurrentMonth,
   isCurrentYear,
   isToday,
+  isTodaySelectedInWeek,
 } from "@/utils/date-utils";
 
 export function useCalendarNavigation() {
-  const { date, isDayView, isMonthView, isYearView } = useCalendarUrl();
+  const { date, isDayView, isMonthView, isWeekView, isYearView } =
+    useCalendarUrl();
   const router = useRouter();
 
   function moveToNext() {
@@ -44,6 +48,17 @@ export function useCalendarNavigation() {
         `/day/${nextDate.getFullYear()}/${
           nextDate.getMonth() + 1
         }/${nextDate.getDate()}`,
+      );
+    } else if (isWeekView) {
+      const nextWeek = getNextWeek(date);
+      if (isTodaySelectedInWeek(nextWeek)) {
+        router.push("/week");
+        return;
+      }
+      router.push(
+        `/week/${nextWeek.getFullYear()}/${
+          nextWeek.getMonth() + 1
+        }/${nextWeek.getDate()}`,
       );
     }
   }
@@ -77,6 +92,17 @@ export function useCalendarNavigation() {
           }/${prevDate.getDate()}`,
         );
       }
+    } else if (isWeekView) {
+      const prevWeek = getPrevWeek(date);
+      if (isTodaySelectedInWeek(prevWeek)) {
+        router.push("/week");
+        return;
+      }
+      router.push(
+        `/week/${prevWeek.getFullYear()}/${
+          prevWeek.getMonth() + 1
+        }/${prevWeek.getDate()}`,
+      );
     }
   }
 
