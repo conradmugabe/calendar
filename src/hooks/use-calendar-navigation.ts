@@ -13,7 +13,6 @@ import {
   isCurrentMonth,
   isCurrentYear,
   isToday,
-  isTodaySelectedInWeek,
 } from "@/utils/date-utils";
 
 export function useCalendarNavigation() {
@@ -51,7 +50,7 @@ export function useCalendarNavigation() {
       );
     } else if (isWeekView) {
       const nextWeek = getNextWeek(date);
-      if (isTodaySelectedInWeek(nextWeek)) {
+      if (isToday(nextWeek)) {
         router.push("/week");
         return;
       }
@@ -94,7 +93,7 @@ export function useCalendarNavigation() {
       }
     } else if (isWeekView) {
       const prevWeek = getPrevWeek(date);
-      if (isTodaySelectedInWeek(prevWeek)) {
+      if (isToday(prevWeek)) {
         router.push("/week");
         return;
       }

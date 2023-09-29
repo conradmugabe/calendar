@@ -24,7 +24,7 @@ export function getWeekView(date = new Date()) {
   let currentWeekCount = 0 - dayOfWeek;
   const daysMatrix = new Array(numberOfDaysInWeek).fill(null).map(() => {
     currentWeekCount++;
-    return new Date(year, month, dayOfMonth + currentWeekCount);
+    return new Date(year, month, dayOfMonth + currentWeekCount - 1);
   });
   return daysMatrix;
 }

@@ -7,15 +7,6 @@ export function isToday(date: Date) {
   );
 }
 
-export function isTodaySelectedInWeek(date: Date) {
-  const today = new Date();
-  return (
-    date.getDate() === today.getDate() &&
-    date.getMonth() === today.getMonth() &&
-    date.getFullYear() === today.getFullYear()
-  );
-}
-
 export function isCurrentMonth(date: Date) {
   const today = new Date();
   return (
@@ -59,4 +50,18 @@ export function getNextYear(date: Date) {
 
 export function getPrevYear(date: Date) {
   return new Date(date.getFullYear() - 1, date.getMonth(), date.getDate());
+}
+
+export function convertTo12Hour(currentHour: number): string {
+  const hour = currentHour % 12 || 12;
+  const period = currentHour < 12 ? "AM" : "PM";
+  return `${hour} ${period}`;
+}
+
+export function getCurrentTime() {
+  const date = new Date();
+  const hours = date.getHours();
+  const minutes = date.getMinutes();
+  const time = `${hours}:${minutes}`;
+  return time;
 }

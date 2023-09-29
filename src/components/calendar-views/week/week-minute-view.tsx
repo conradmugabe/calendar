@@ -3,14 +3,15 @@
 import { useEffect, useState } from "react";
 
 import classnames from "classnames";
+
 import { convertTo12Hour, getCurrentTime } from "@/utils/date-utils";
 
 type Props = {
-  time: string;
   isToday: boolean;
+  time: string;
 };
 
-export function DayMinuteView({ isToday, time }: Props) {
+export function WeekMinuteView({ isToday, time }: Props) {
   const [currentTime, setCurrentTime] = useState(getCurrentTime());
   const [currentHour, currentMinute] = currentTime.split(":");
   const hour = convertTo12Hour(Number(currentHour));
@@ -25,7 +26,7 @@ export function DayMinuteView({ isToday, time }: Props) {
   }, []);
 
   return (
-    <div className="relative flex-1 h-[60px] border border-b-0 border-r-0">
+    <div className="relative h-[20px] border border-b-0 border-r-0">
       <div
         className={classnames("flex items-center absolute w-full", {
           hidden: !showTimeBar,

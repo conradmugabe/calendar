@@ -5,7 +5,6 @@ type Props = {
 };
 
 export function WeekView({ week }: Props) {
-  console.log("week", week);
   return (
     <section className="h-full w-full grid grid-cols-7">
       {week.map((date, index) => (
