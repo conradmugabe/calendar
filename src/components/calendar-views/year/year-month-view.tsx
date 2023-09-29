@@ -5,16 +5,16 @@ import { YearDayView } from "./year-day-view";
 
 type Props = {
   monthIndex: number;
-  year?: number;
+  urlDate: Date;
 };
 
 const dayShort = ["S", "M", "T", "W", "T", "F", "S"];
 
-export function YearMonthView({ monthIndex, year }: Props) {
+export function YearMonthView({ monthIndex, urlDate }: Props) {
   const monthName = new Date(2000, monthIndex).toLocaleString("default", {
     month: "long",
   });
-  const month = getMonthView(monthIndex, year, 6);
+  const month = getMonthView(monthIndex, urlDate.getFullYear(), 6);
 
   return (
     <article className="grid gap-2 text-xs font-medium">
@@ -33,7 +33,12 @@ export function YearMonthView({ monthIndex, year }: Props) {
               {week.map((day, idx) => {
                 const isInMonth = day.getMonth() === monthIndex;
                 return (
-                  <YearDayView key={idx} day={day} isInMonth={isInMonth} />
+                  <YearDayView
+                    key={idx}
+                    day={day}
+                    isInMonth={isInMonth}
+                    urlDate={urlDate}
+                  />
                 );
               })}
             </React.Fragment>
