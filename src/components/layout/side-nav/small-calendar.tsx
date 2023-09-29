@@ -7,8 +7,15 @@ import { useState } from "react";
 
 export function SmallCalendar() {
   const { date: urlDate } = useCalendarUrl();
-  const month = getMonthView(urlDate.getMonth(), urlDate.getFullYear(), 6);
   const [date, setDate] = useState(urlDate);
+  const month = getMonthView(date.getMonth(), date.getFullYear(), 6);
 
-  return <SmallMonthView month={month} urlDate={urlDate} date={date} />;
+  return (
+    <SmallMonthView
+      currentDate={date}
+      month={month}
+      urlDate={urlDate}
+      setDate={setDate}
+    />
+  );
 }

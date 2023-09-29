@@ -8,9 +8,10 @@ import { useCalendarUrl } from "@/hooks/use-calendar-url";
 type Props = {
   day: Date;
   urlDate: Date;
+  currentDate: Date;
 };
 
-export function SmallMonthDayView({ day, urlDate }: Props) {
+export function SmallMonthDayView({ day, urlDate, currentDate }: Props) {
   const { isDayView, isMonthView, isWeekView, isYearView } = useCalendarUrl();
   const router = useRouter();
 
@@ -19,7 +20,7 @@ export function SmallMonthDayView({ day, urlDate }: Props) {
   const isToday =
     dayjs().format("YYYY-MM-DD") === dayjs(day).format("YYYY-MM-DD");
   const isCurrentMonth =
-    dayjs(day).format("YYYY-MM") === dayjs(urlDate).format("YYYY-MM");
+    dayjs(day).format("YYYY-MM") === dayjs(currentDate).format("YYYY-MM");
 
   const endingUrl = isToday
     ? ""
@@ -42,7 +43,9 @@ export function SmallMonthDayView({ day, urlDate }: Props) {
       onClick={() => handleOnClick()}
       className={classnames(
         "h-7 w-7 text-xs font-medium rounded-full transition duration-300",
-        { "text-white bg-blue-500 hover:bg-blue-600": isToday },
+        {
+          "text-white bg-blue-500 hover:bg-blue-600": isToday,
+        },
         { "hover:bg-gray-200": !isSelected && !isToday },
         { "text-gray-400": !isCurrentMonth },
         {
