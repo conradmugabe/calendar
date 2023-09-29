@@ -13,6 +13,9 @@ export function HeaderTodayNavigation() {
     } else if (pathname.startsWith("/year")) {
       router.push("/year");
       return;
+    } else if (pathname.startsWith("/day")) {
+      router.push("/day");
+      return;
     }
   }
 

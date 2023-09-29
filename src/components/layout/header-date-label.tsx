@@ -1,18 +1,20 @@
 "use client";
-import { useParams, usePathname } from "next/navigation";
 
 import dayjs from "dayjs";
 
+import { useCalendarUrl } from "@/hooks/use-calendar-url";
+
 export function HeaderDateLabel() {
-  const params = useParams();
-  const pathname = usePathname();
+  const { date, isDayView, isMonthView, isYearView } = useCalendarUrl();
 
-  let year = params?.allParams?.[0] || String(new Date().getFullYear());
-  let month = params?.allParams?.[1] || String(new Date().getMonth() + 1);
-  const date = new Date(Number(year), Number(month) - 1);
-
-  if (pathname.startsWith("/year")) {
-    return <span>{year}</span>;
+  if (isYearView) {
+    return <span>{dayjs(date).format("YYYY")}</span>;
   }
-  return <span>{dayjs(date).format("MMMM YYYY")}</span>;
+  if (isMonthView) {
+    return <span>{dayjs(date).format("MMMM YYYY")}</span>;
+  }
+  if (isDayView) {
+    return <span>{dayjs(date).format("MMMM D, YYYY")}</span>;
+  }
+  return null;
 }

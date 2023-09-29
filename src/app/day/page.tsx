@@ -1,3 +1,5 @@
+import { DayView } from "@/components/calendar-views";
+
 export default function DayPage() {
-  return <section>Day Page</section>;
+  return <DayView />;
 }
