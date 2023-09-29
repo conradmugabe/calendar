@@ -14,10 +14,13 @@ export default function DayPage({ params: { allParams } }: Props) {
   let currentMonth = allParams?.[1];
   let currentDay = allParams?.[2];
 
-  if (!currentYear || !currentMonth) redirect("/day");
+  if (!currentYear || !currentMonth || !currentDay) redirect("/day");
+
+  // Check if year and date are valid and in the range of 1000-9999 for the year
 
   let year = Number(currentYear);
   let month = Number(currentMonth);
+  let day = Number(currentDay);
   if (month > 12) {
     month = 12;
   }
@@ -31,7 +34,5 @@ export default function DayPage({ params: { allParams } }: Props) {
     year = 1000;
   }
 
-  //   const monthView = getMonthView(month - 1, year);
-
-  return <DayView />;
+  return <DayView dateProps={{ day, month, year }} />;
 }
