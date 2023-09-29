@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${font.className} h-screen overflow-hidden flex flex-col`}
+        className={`${font.className} h-screen w-screen overflow-hidden flex flex-col`}
       >
         <Header />
         <main className="flex-1 flex">

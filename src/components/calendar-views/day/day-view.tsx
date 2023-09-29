@@ -1,6 +1,8 @@
 import dayjs from "dayjs";
 import classnames from "classnames";
 
+import { DayTimeView } from "@/components/calendar-views/day/day-time-view";
+
 type Props = {
   dateProps?: { year: number; month: number; day: number };
 };
@@ -16,7 +18,7 @@ export function DayView({ dateProps }: Props) {
   const isToday = dayjs().format("YYYY-MM-DD") === day.format("YYYY-MM-DD");
 
   return (
-    <section className="h-full w-ful">
+    <section className="h-full w-full flex flex-col">
       <header className="py-2 flex flex-col justify-center">
         <h3
           className={classnames(
@@ -38,6 +40,7 @@ export function DayView({ dateProps }: Props) {
           {day.format("D")}
         </h3>
       </header>
+      <DayTimeView isToday={isToday} />
     </section>
   );
 }
