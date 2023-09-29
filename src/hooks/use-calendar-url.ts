@@ -13,17 +13,19 @@ export function useCalendarUrl() {
 
   const date = new Date(Number(year), Number(month) - 1, Number(day));
 
-  const isMonthView = pathname.startsWith("/month");
   const isYearView = pathname.startsWith("/year");
+  const isMonthView = pathname.startsWith("/month");
+  const isWeekView = pathname.startsWith("/week");
   const isDayView = pathname.startsWith("/day");
 
   return {
-    year,
-    month,
-    day,
     date,
-    isMonthView,
-    isYearView,
+    day,
+    month,
+    year,
     isDayView,
+    isMonthView,
+    isWeekView,
+    isYearView,
   };
 }

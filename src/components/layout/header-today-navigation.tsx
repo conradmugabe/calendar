@@ -1,20 +1,24 @@
 "use client";
 
+import { useCalendarUrl } from "@/hooks/use-calendar-url";
 import { usePathname, useRouter } from "next/navigation";
 
 export function HeaderTodayNavigation() {
-  const pathname = usePathname();
   const router = useRouter();
+  const { isDayView, isMonthView, isWeekView, isYearView } = useCalendarUrl();
 
   function handleOnClick() {
-    if (pathname.startsWith("/month")) {
+    if (isMonthView) {
       router.push("/month");
       return;
-    } else if (pathname.startsWith("/year")) {
+    } else if (isYearView) {
       router.push("/year");
       return;
-    } else if (pathname.startsWith("/day")) {
+    } else if (isDayView) {
       router.push("/day");
+      return;
+    } else if (isWeekView) {
+      router.push("/week");
       return;
     }
   }

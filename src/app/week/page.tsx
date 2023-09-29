@@ -1,3 +1,8 @@
+import { getWeekView } from "@/calendar/utils";
+import { WeekView } from "@/components/calendar-views";
+
 export default function WeekPage() {
-  return <section>Week Page</section>;
+  const week = getWeekView();
+
+  return <WeekView week={week} />;
 }
