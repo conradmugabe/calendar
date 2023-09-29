@@ -12,8 +12,9 @@ type Props = {
 export default function MonthPage({ params: { allParams } }: Props) {
   let currentYear = allParams?.[0];
   let currentMonth = allParams?.[1];
+  let currentDay = allParams?.[2];
 
-  if (!currentYear || !currentMonth) redirect("/month");
+  if (!currentYear || !currentMonth || !currentDay) redirect("/month");
 
   let year = Number(currentYear);
   let month = Number(currentMonth);
@@ -31,6 +32,7 @@ export default function MonthPage({ params: { allParams } }: Props) {
   }
 
   const monthView = getMonthView(month - 1, year);
+  const urlDate = new Date(year, month - 1, Number(currentDay));
 
-  return <MonthView month={monthView} />;
+  return <MonthView month={monthView} urlDate={urlDate} />;
 }
