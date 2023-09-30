@@ -10,10 +10,12 @@ import {
   getPrevMonth,
   getPrevWeek,
   getPrevYear,
-  isCurrentMonth,
-  isCurrentYear,
   isToday,
 } from "@/utils/date-utils";
+
+function getUrlEnding(date: Date) {
+  return `/${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`;
+}
 
 export function useCalendarNavigation() {
   const { date, isDayView, isMonthView, isWeekView, isYearView } =
@@ -23,73 +25,57 @@ export function useCalendarNavigation() {
   function moveToNext() {
     if (isMonthView) {
       const nextMonth = getNextMonth(date);
-      if (isCurrentMonth(nextMonth)) {
+      if (isToday(nextMonth)) {
         router.push("/month");
         return;
       }
-      router.push(
-        `/month/${nextMonth.getFullYear()}/${nextMonth.getMonth() + 1}/1`,
-      );
+      router.push(`/month${getUrlEnding(nextMonth)}`);
     } else if (isYearView) {
       const nextYear = getNextYear(date);
-      if (isCurrentYear(nextYear)) {
+      if (isToday(nextYear)) {
         router.push("/year");
         return;
       }
-      router.push(`/year/${nextYear.getFullYear()}`);
+      router.push(`/year${getUrlEnding(nextYear)}`);
     } else if (isDayView) {
       const nextDate = getNextDate(date);
       if (isToday(nextDate)) {
         router.push("/day");
         return;
       }
-      router.push(
-        `/day/${nextDate.getFullYear()}/${
-          nextDate.getMonth() + 1
-        }/${nextDate.getDate()}`,
-      );
+      router.push(`/day${getUrlEnding(nextDate)}`);
     } else if (isWeekView) {
       const nextWeek = getNextWeek(date);
       if (isToday(nextWeek)) {
         router.push("/week");
         return;
       }
-      router.push(
-        `/week/${nextWeek.getFullYear()}/${
-          nextWeek.getMonth() + 1
-        }/${nextWeek.getDate()}`,
-      );
+      router.push(`/week${getUrlEnding(nextWeek)}`);
     }
   }
 
   function moveToPrev() {
     if (isMonthView) {
       const prevMonth = getPrevMonth(date);
-      if (isCurrentMonth(prevMonth)) {
+      if (isToday(prevMonth)) {
         router.push("/month");
         return;
       }
-      router.push(
-        `/month/${prevMonth.getFullYear()}/${prevMonth.getMonth()}/1`,
-      );
+      router.push(`/month${getUrlEnding(prevMonth)}`);
     } else if (isYearView) {
       const prevYear = getPrevYear(date);
-      if (isCurrentYear(prevYear)) {
+      if (isToday(prevYear)) {
         router.push("/year");
         return;
       }
-      router.push(`/year/${prevYear.getFullYear()}`);
+      router.push(`/year${getUrlEnding(prevYear)}`);
     } else if (isDayView) {
       const prevDate = getPrevDate(date);
       if (isToday(prevDate)) {
         router.push("/day");
         return;
       } else {
-        router.push(
-          `/day/${prevDate.getFullYear()}/${
-            prevDate.getMonth() + 1
-          }/${prevDate.getDate()}`,
-        );
+        router.push(`/day${getUrlEnding(prevDate)}`);
       }
     } else if (isWeekView) {
       const prevWeek = getPrevWeek(date);
@@ -97,11 +83,7 @@ export function useCalendarNavigation() {
         router.push("/week");
         return;
       }
-      router.push(
-        `/week/${prevWeek.getFullYear()}/${
-          prevWeek.getMonth() + 1
-        }/${prevWeek.getDate()}`,
-      );
+      router.push(`/week${getUrlEnding(prevWeek)}`);
     }
   }
 

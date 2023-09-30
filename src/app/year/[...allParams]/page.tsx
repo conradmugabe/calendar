@@ -13,7 +13,7 @@ export default function YearPage({ params: { allParams } }: Props) {
   let currentMonth = allParams?.[1];
   let currentDay = allParams?.[2];
 
-  if (!currentYear || !currentMonth || !currentDay) redirect("/month");
+  if (!currentYear || !currentMonth || !currentDay) redirect("/year");
 
   let year = Number(currentYear);
   let month = Number(currentMonth);
