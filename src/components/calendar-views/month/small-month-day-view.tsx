@@ -9,9 +9,15 @@ type Props = {
   day: Date;
   urlDate: Date;
   currentDate: Date;
+  setDate: (date: Date) => void;
 };
 
-export function SmallMonthDayView({ day, urlDate, currentDate }: Props) {
+export function SmallMonthDayView({
+  day,
+  urlDate,
+  currentDate,
+  setDate,
+}: Props) {
   const { isDayView, isMonthView, isWeekView, isYearView } = useCalendarUrl();
   const router = useRouter();
 
@@ -27,6 +33,9 @@ export function SmallMonthDayView({ day, urlDate, currentDate }: Props) {
     : `/${day.getFullYear()}/${day.getMonth() + 1}/${day.getDate()}`;
 
   function handleOnClick() {
+    if (!isCurrentMonth) {
+      setDate(day);
+    }
     if (isDayView) {
       router.push(`/day${endingUrl}`);
     } else if (isMonthView) {

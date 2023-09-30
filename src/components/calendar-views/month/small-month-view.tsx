@@ -55,6 +55,7 @@ export function SmallMonthView({
                 day={day}
                 urlDate={urlDate}
                 currentDate={currentDate}
+                setDate={setDate}
               />
             ))}
           </React.Fragment>
