@@ -15,7 +15,7 @@ export function SmallCalendar() {
   const _date = date.getDate();
 
   useEffect(() => {
-    setDate(urlDate);
+    setDate(new Date(_year, _month, _date));
   }, [_date, _month, _year]);
 
   return (
