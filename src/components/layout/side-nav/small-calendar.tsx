@@ -10,10 +10,13 @@ export function SmallCalendar() {
   const { date: urlDate } = useCalendarUrl();
   const [date, setDate] = useState(urlDate);
   const month = getMonthView(date.getMonth(), date.getFullYear(), 6);
+  const _year = date.getFullYear();
+  const _month = date.getMonth();
+  const _date = date.getDate();
 
   useEffect(() => {
     setDate(urlDate);
-  }, [urlDate.getDate(), urlDate.getMonth(), urlDate.getFullYear()]);
+  }, [_date, _month, _year]);
 
   return (
     <SmallMonthView
