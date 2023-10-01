@@ -1,8 +1,13 @@
 import { useParams, usePathname } from "next/navigation";
 
-export function useCalendarUrl() {
+type Props = {
+  defaultView: string;
+};
+
+export function useCalendarUrl(props?: Props) {
   const params = useParams();
   const pathname = usePathname();
+  const { defaultView } = props || {};
 
   const currentYear = new Date().getFullYear();
   const currentMonth = new Date().getMonth() + 1;
@@ -13,10 +18,14 @@ export function useCalendarUrl() {
 
   const date = new Date(Number(year), Number(month) - 1, Number(day));
 
-  const isYearView = pathname.startsWith("/year");
-  const isMonthView = pathname.startsWith("/month");
-  const isWeekView = pathname.startsWith("/week");
-  const isDayView = pathname.startsWith("/day");
+  const isYearView =
+    (defaultView && defaultView === "year") || pathname.startsWith("/year");
+  const isMonthView =
+    (defaultView && defaultView === "month") || pathname.startsWith("/month");
+  const isWeekView =
+    (defaultView && defaultView === "week") || pathname.startsWith("/week");
+  const isDayView =
+    (defaultView && defaultView === "day") || pathname.startsWith("/day");
 
   return {
     date,

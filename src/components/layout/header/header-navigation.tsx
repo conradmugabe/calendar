@@ -1,10 +1,18 @@
 "use client";
 
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useCalendarNavigation } from "@/hooks/use-calendar-navigation";
 
-export function HeaderNavigation() {
-  const { moveToNext, moveToPrev } = useCalendarNavigation();
+import { useCalendarNavigation } from "@/hooks/use-calendar-navigation";
+import { CalendarSettings } from "@/calendar/services";
+
+type Props = {
+  settings: CalendarSettings;
+};
+
+export function HeaderNavigation({ settings }: Props) {
+  const { moveToNext, moveToPrev } = useCalendarNavigation({
+    defaultView: settings.view,
+  });
 
   return (
     <>
@@ -16,7 +24,9 @@ export function HeaderNavigation() {
       </button>
       <button
         className="h-9 w-9 rounded-full transition duration-300 grid place-content-center hover:bg-gray-100"
-        onClick={() => moveToNext()}
+        onClick={() => {
+          moveToNext();
+        }}
       >
         <ChevronRight className="stroke-gray-700" />
       </button>

@@ -17,9 +17,13 @@ function getUrlEnding(date: Date) {
   return `/${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`;
 }
 
-export function useCalendarNavigation() {
+type Props = {
+  defaultView: string;
+};
+
+export function useCalendarNavigation(props?: Props) {
   const { date, isDayView, isMonthView, isWeekView, isYearView } =
-    useCalendarUrl();
+    useCalendarUrl(props);
   const router = useRouter();
 
   function moveToNext() {

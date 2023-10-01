@@ -9,4 +9,14 @@ export const calendarSettingsHandlers = [
       }),
     );
   }),
+
+  rest.post(process.env.CALENDAR_API_URL || "", async (req, res, ctx) => {
+    const { view } = req.body as { view: string };
+    return res(
+      ctx.status(200),
+      ctx.json({
+        view,
+      }),
+    );
+  }),
 ];

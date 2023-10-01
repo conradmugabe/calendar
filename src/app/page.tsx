@@ -6,14 +6,9 @@ import {
   WeekView,
   YearView,
 } from "@/components/calendar-views";
-import { initMock } from "../../mocks";
-
-if (process.env.NODE_ENV === "development") {
-  initMock();
-}
 
 export default async function Home() {
-  const settings = await calendarSettingsService.getCalendarView();
+  const settings = await calendarSettingsService.get();
 
   if (settings.view === "day") {
     return <DayView />;
