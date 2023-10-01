@@ -3,8 +3,8 @@ import React from "react";
 import dayjs from "dayjs";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-import { SmallMonthDayView } from "./small-month-day-view";
 import { getNextMonth, getPrevMonth } from "@/utils/date-utils";
+import { SmallMonthDayView } from "./small-month-day-view";
 
 type Props = {
   month: Date[][];
