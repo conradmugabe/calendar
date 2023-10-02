@@ -31,6 +31,7 @@ export function useCalendarUrl(props?: Props) {
     date,
     day,
     month,
+    pathname,
     year,
     isDayView,
     isMonthView,
