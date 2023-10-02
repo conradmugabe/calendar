@@ -19,7 +19,7 @@ const links = [
 ];
 
 export function CalendarViewToggler({ settings }: Props) {
-  const { date, view } = useCalendarUrl();
+  const { date, view } = useCalendarUrl({ defaultView: settings.view });
   const isToday =
     dayjs().format("YYYY-MM-DD") === dayjs(date).format("YYYY-MM-DD");
 
