@@ -27,11 +27,20 @@ export function useCalendarUrl(props?: Props) {
   const isDayView =
     (defaultView && defaultView === "day") || pathname.startsWith("/day");
 
+  const view = isYearView
+    ? "year"
+    : isMonthView
+    ? "month"
+    : isWeekView
+    ? "week"
+    : "day";
+
   return {
     date,
     day,
     month,
     pathname,
+    view,
     year,
     isDayView,
     isMonthView,

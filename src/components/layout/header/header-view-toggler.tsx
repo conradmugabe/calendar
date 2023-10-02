@@ -19,20 +19,19 @@ const links = [
 ];
 
 export function CalendarViewToggler({ settings }: Props) {
-  const { date, pathname } = useCalendarUrl();
+  const { date, view } = useCalendarUrl();
   const isToday =
     dayjs().format("YYYY-MM-DD") === dayjs(date).format("YYYY-MM-DD");
 
   return (
     <div className="grid grid-cols-4">
       {links.map(({ href, label }) => {
-        const isActive =
-          pathname.startsWith(href) || settings.view === label.toLowerCase();
         const endingUrl = isToday
           ? ""
           : `/${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`;
 
         const url = `${href}${endingUrl}`;
+        const isActive = view === label.toLowerCase();
         return (
           <Link
             key={href}
