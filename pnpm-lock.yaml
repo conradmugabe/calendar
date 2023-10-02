@@ -29,11 +29,14 @@ dependencies:
   react-dom:
     specifier: latest
     version: 18.2.0(react@18.2.0)
+  react-hook-form:
+    specifier: ^7.47.0
+    version: 7.47.0(react@18.2.0)
 
 devDependencies:
   "@types/node":
     specifier: latest
-    version: 20.8.0
+    version: 20.8.2
   "@types/react":
     specifier: latest
     version: 18.2.24
@@ -468,10 +471,10 @@ packages:
       }
     dev: true
 
-  /@types/node@20.8.0:
+  /@types/node@20.8.2:
     resolution:
       {
-        integrity: sha512-LzcWltT83s1bthcvjBmiBvGJiiUe84NWRHkw+ZV6Fr41z2FbIzvc815dk2nQ3RAKMuN2fkenM/z3Xv2QzEpYxQ==,
+        integrity: sha512-Vvycsc9FQdwhxE3y3DzeIxuEJbWGDsnrxvMADzTDF/lcdR9/K+AQIeAghTQsHtotg/q0j3WEOYS/jQgSdWue3w==,
       }
     dev: true
 
@@ -515,7 +518,7 @@ packages:
         integrity: sha512-xCfTC/eL/GmvMC24b42qJpYSTdCIBwWcfskDF80ztXtnU6pKXyvuZP2EConb2K9ps0s7gMhCa0P1foy7wiItMA==,
       }
     dependencies:
-      "@types/node": 20.8.0
+      "@types/node": 20.8.2
     dev: true
 
   /@typescript-eslint/parser@6.7.3(eslint@8.50.0)(typescript@5.2.2):
@@ -3624,6 +3627,18 @@ packages:
       loose-envify: 1.4.0
       react: 18.2.0
       scheduler: 0.23.0
+    dev: false
+
+  /react-hook-form@7.47.0(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-F/TroLjTICipmHeFlMrLtNLceO2xr1jU3CyiNla5zdwsGUGu2UOxxR4UyJgLlhMwLW/Wzp4cpJ7CPfgJIeKdSg==,
+      }
+    engines: { node: ">=12.22.0" }
+    peerDependencies:
+      react: ^16.8.0 || ^17 || ^18
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /react-is@16.13.1:

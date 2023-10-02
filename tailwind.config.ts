@@ -6,7 +6,13 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  theme: { extend: {} },
+  theme: {
+    extend: {
+      gridTemplateColumns: {
+        "1/5": "1fr 5fr",
+      },
+    },
+  },
   plugins: [],
 };
 export default config;
