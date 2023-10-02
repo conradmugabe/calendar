@@ -21,7 +21,7 @@ export function Header({ settings }: Props) {
           </div>
           <HeaderDateLabel />
         </div>
-        <div>
+        <div className="ml-auto">
           <CalendarViewToggler settings={settings} />
         </div>
       </nav>
