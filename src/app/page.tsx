@@ -10,6 +10,9 @@
 import Link from "next/link";
 
 import { Logo } from "@/components/common/logo";
+import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
+import { nextAuthOptions } from "@/auth/next-auth";
 
 // export default async function Home() {
 //   const settings = await calendarSettingsService.get();
@@ -34,7 +37,12 @@ import { Logo } from "@/components/common/logo";
 //   return <MonthView month={month} urlDate={urlDate} />;
 // }
 
-export default function LandingPage() {
+export default async function LandingPage() {
+  const session = await getServerSession(nextAuthOptions);
+  if (session) {
+    redirect("/r");
+  }
+
   return (
     <section className="h-screen w-screen bg-gray-100 overflow-hidden">
       <div className="max-w-5xl h-full mx-auto p-1 sm:px-4 xl:px-0">
