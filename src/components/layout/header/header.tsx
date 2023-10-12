@@ -3,13 +3,11 @@ import { HeaderNavigation } from "@/components/layout/header/header-navigation";
 import { HeaderDateLabel } from "@/components/layout/header/header-date-label";
 import { HeaderTodayNavigation } from "@/components/layout/header/header-today-navigation";
 import { CalendarViewToggler } from "@/components/layout/header/header-view-toggler";
-import { CalendarSettings } from "@/calendar/services";
+import { calendarSettingsService } from "@/calendar";
 
-type Props = {
-  settings: CalendarSettings;
-};
+export async function Header() {
+  const settings = await calendarSettingsService.get();
 
-export function Header({ settings }: Props) {
   return (
     <header className="p-4 border-b">
       <nav className="flex items-center">

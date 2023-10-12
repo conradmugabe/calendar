@@ -22,11 +22,9 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const settings = await calendarSettingsService.get();
-
   return (
     <html lang="en">
-      <body
+      {/* <body
         className={`${font.className} h-screen w-screen overflow-hidden flex flex-col`}
       >
         <Header settings={settings} />
@@ -34,7 +32,8 @@ export default async function RootLayout({
           <SideNav />
           <section className="flex-1">{children}</section>
         </main>
-      </body>
+      </body> */}
+      <body className={font.className}>{children}</body>
     </html>
   );
 }
