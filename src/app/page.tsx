@@ -45,28 +45,32 @@ export default function LandingPage() {
             </button>
           </div>
         </div>
-        <div className="flex flex-col items-center pt-16 space-y-5 lg:pt-20">
-          <h1 className="text-4xl text-center font-semibold text-gray-800 md:text-5xl">
-            Online Calendar
-          </h1>
-          <p className="text-sm px-2 text-center font-normal text-gray-500 md:w-8/12 mx-auto md:text-base">
-            Make scheduling easy for you. Features that help you create events,
-            invite others, manage group calendars, and organize team events with
-            shareable calendars.
-          </p>
-          <div className="space-x-2">
-            <span className="text-xs px-4 py-2 rounded-full shadow-md font-semibold tracking-wide text-gray-800">
-              Share
-            </span>
-            <span className="text-xs px-4 py-2 rounded-full shadow-md font-semibold tracking-wide text-gray-800">
-              Schedule
-            </span>
-            <span className="text-xs px-4 py-2 rounded-full shadow-md font-semibold tracking-wide text-gray-800">
-              Organize
-            </span>
+        <div className="relative">
+          <div className="absolute h-96 w-96 bg-purple-100 rounded-full blur-xl -left-72 md:top-10 md:-left-40" />
+          <div className="absolute h-96 w-96 bg-yellow-100 rounded-full blur-3xl -bottom-[28rem] -right-20 md:-bottom-96 md:-right-12" />
+          <div className="relative flex flex-col items-center pt-16 space-y-5 lg:pt-20">
+            <h1 className="text-4xl text-center font-semibold text-gray-800 md:text-5xl">
+              Online Calendar
+            </h1>
+            <p className="text-sm px-2 text-center font-normal text-gray-500 md:w-8/12 mx-auto md:text-base">
+              Make scheduling easy for you. Features that help you create
+              events, invite others, manage group calendars, and organize team
+              events with shareable calendars.
+            </p>
+            <div className="space-x-2">
+              <span className="text-xs px-4 py-2 rounded-full shadow-md font-semibold tracking-wide text-gray-800 bg-white">
+                Share
+              </span>
+              <span className="text-xs px-4 py-2 rounded-full shadow-md font-semibold tracking-wide text-gray-800 bg-white">
+                Schedule
+              </span>
+              <span className="text-xs px-4 py-2 rounded-full shadow-md font-semibold tracking-wide text-gray-800 bg-white">
+                Organize
+              </span>
+            </div>
           </div>
         </div>
-        <div className="bg-black h-full rounded-3xl mt-16"></div>
+        <div className="relative bg-black h-full rounded-3xl mt-16"></div>
       </div>
     </section>
   );
