@@ -34,7 +34,7 @@ export default function LandingPage() {
   return (
     <section className="h-screen w-screen bg-gray-100 overflow-hidden">
       <div className="max-w-5xl h-full mx-auto p-1 sm:px-4 xl:px-0">
-        <div className="flex items-center justify-between py-6">
+        <div className="flex items-center justify-between py-2 sm:py-4 lg:py-6">
           <h1 className="text-xl font-semibold text-gray-800">Calendar</h1>
           <div className="flex items-center gap-2 sm:gap-4">
             <button className="px-4 py-2 rounded-md bg-white text-sm font-medium text-gray-800 whitespace-nowrap hover:shadow-lg">
