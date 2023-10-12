@@ -1,3 +1,3 @@
 export function Logo() {
-  return <h1 className="font-normal text-2xl tracking-tight">Calendar</h1>;
+  return <h1 className="text-xl font-semibold text-gray-800">Calendar</h1>;
 }
