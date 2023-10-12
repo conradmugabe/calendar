@@ -8,6 +8,7 @@
 // } from "@/components/calendar-views";
 
 import { Logo } from "@/components/common/logo";
+import Link from "next/link";
 
 // export default async function Home() {
 //   const settings = await calendarSettingsService.get();
@@ -37,7 +38,9 @@ export default function LandingPage() {
     <section className="h-screen w-screen bg-gray-100 overflow-hidden">
       <div className="max-w-5xl h-full mx-auto p-1 sm:px-4 xl:px-0">
         <div className="flex items-center justify-between py-2 sm:py-4 lg:py-6">
-          <Logo />
+          <Link href="/">
+            <Logo />
+          </Link>
           <div className="flex items-center gap-2 sm:gap-4">
             <button className="px-4 py-2 rounded-md bg-white text-sm font-medium text-gray-800 whitespace-nowrap hover:shadow-lg">
               Sign in
