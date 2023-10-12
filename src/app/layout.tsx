@@ -4,11 +4,11 @@ import { Montserrat } from "next/font/google";
 
 import { Header, SideNav } from "@/components/layout";
 import { calendarSettingsService } from "@/calendar";
-import { initMock } from "../../mocks";
+// import { initMock } from "../../mocks";
 
-if (process.env.NODE_ENV === "development") {
-  initMock();
-}
+// if (process.env.NODE_ENV === "development") {
+//   initMock();
+// }
 
 const font = Montserrat({ subsets: ["latin"] });
 
