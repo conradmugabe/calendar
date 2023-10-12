@@ -7,8 +7,9 @@
 //   YearView,
 // } from "@/components/calendar-views";
 
-import { Logo } from "@/components/common/logo";
 import Link from "next/link";
+
+import { Logo } from "@/components/common/logo";
 
 // export default async function Home() {
 //   const settings = await calendarSettingsService.get();
@@ -41,9 +42,11 @@ export default function LandingPage() {
           <Link href="/">
             <Logo />
           </Link>
-          <button className="px-4 py-2 rounded-md bg-gray-800 text-sm font-medium text-white whitespace-nowrap hover:shadow-lg">
-            Log in
-          </button>
+          <Link href="/api/auth/signin">
+            <button className="px-4 py-2 rounded-md bg-gray-800 text-sm font-medium text-white whitespace-nowrap hover:shadow-lg">
+              Log in
+            </button>
+          </Link>
         </header>
         <div className="relative">
           <div className="absolute h-96 w-96 bg-purple-100 rounded-full blur-xl -left-72 md:top-10 md:-left-40" />
