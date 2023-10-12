@@ -1,7 +1,7 @@
 "use client";
 
 import { useCalendarUrl } from "@/hooks/use-calendar-url";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 export function HeaderTodayNavigation() {
   const router = useRouter();
