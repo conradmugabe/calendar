@@ -13,15 +13,9 @@ import {
   DropdownMenuItem,
 } from "@/components/common/dropdown-menu";
 import { Logo } from "@/components/common/logo";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/common/sheet";
 
 import { Header } from "@/components/layout";
+import { HeaderSheet } from "@/components/layout/header/header-sheet";
 import { getServerSession } from "next-auth";
 import Link from "next/link";
 
@@ -36,17 +30,9 @@ export default async function layout({
   return (
     <main className="h-screen w-screen overflow-hidden">
       <header className="p-1 flex justify-between items-center">
-        <div className="">
-          <Sheet>
-            <SheetTrigger>Open</SheetTrigger>
-            <SheetContent side="left">
-              <SheetHeader>
-                <SheetTitle>
-                  <Logo />
-                </SheetTitle>
-              </SheetHeader>
-            </SheetContent>
-          </Sheet>
+        <div>
+          <Logo className="hidden md:block" />
+          <HeaderSheet />
         </div>
         <div className="flex items-center gap-2">
           <button className="h-8 w-8 border-2 md:hidden"></button>
