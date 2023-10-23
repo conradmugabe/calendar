@@ -25,14 +25,14 @@ export function DayMinuteView({ isToday, time }: Props) {
   }, []);
 
   return (
-    <div className="relative flex-1 h-[20px] border border-b-0 border-r-0">
+    <div className="relative h-[20px] flex-1 border border-b-0 border-r-0">
       <div
-        className={classnames("flex items-center absolute w-full", {
+        className={classnames("absolute flex w-full items-center", {
           hidden: !showTimeBar,
         })}
         style={{ top: `${currentMinute}%` }}
       >
-        <div className="h-3 w-3 bg-red-600 rounded-full" />
+        <div className="h-3 w-3 rounded-full bg-red-600" />
         <div className="h-[2px] w-full bg-red-600" />
       </div>
     </div>

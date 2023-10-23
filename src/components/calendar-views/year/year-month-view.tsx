@@ -18,11 +18,11 @@ export function YearMonthView({ monthIndex, urlDate }: Props) {
 
   return (
     <article className="grid gap-2 text-xs font-medium">
-      <h3 className="text-sm font-semibold text-gray-500 pl-1">{monthName}</h3>
+      <h3 className="pl-1 text-sm font-semibold text-gray-500">{monthName}</h3>
       <div className="grid grid-cols-7">
         <>
           {dayShort.map((d) => (
-            <div key={d} className="h-6 w-6 grid place-content-center">
+            <div key={d} className="grid h-6 w-6 place-content-center">
               {d}
             </div>
           ))}

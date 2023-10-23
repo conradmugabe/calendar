@@ -29,7 +29,7 @@ export default async function layout({
 
   return (
     <main className="h-screen w-screen overflow-hidden">
-      <header className="p-1 flex justify-between items-center">
+      <header className="flex items-center justify-between p-1">
         <div>
           <Logo className="hidden md:block" />
           <HeaderSheet />

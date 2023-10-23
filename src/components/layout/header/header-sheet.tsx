@@ -36,11 +36,11 @@ export function HeaderSheet() {
       </SheetTrigger>
       <SheetContent side="left" className="p-0 pr-4">
         <SheetHeader>
-          <SheetTitle className="text-left p-3">
+          <SheetTitle className="p-3 text-left">
             <Logo className="text-3xl" />
           </SheetTitle>
         </SheetHeader>
-        <div className="grid mt-10 gap-1">
+        <div className="mt-10 grid gap-1">
           {links.map(({ href, label }) => {
             const endingUrl = isToday
               ? ""

@@ -51,14 +51,14 @@ export function SmallMonthDayView({
     <button
       onClick={() => handleOnClick()}
       className={classnames(
-        "h-7 w-7 text-xs font-medium rounded-full transition duration-300",
+        "h-7 w-7 rounded-full text-xs font-medium transition duration-300",
         {
-          "text-white bg-blue-500 hover:bg-blue-600": isToday,
+          "bg-blue-500 text-white hover:bg-blue-600": isToday,
         },
         { "hover:bg-gray-200": !isSelected && !isToday },
         { "text-gray-400": !isCurrentMonth },
         {
-          "text-blue-600 bg-blue-200 hover:bg-blue-300": isSelected && !isToday,
+          "bg-blue-200 text-blue-600 hover:bg-blue-300": isSelected && !isToday,
         },
       )}
     >

@@ -37,7 +37,7 @@ export function CalendarViewToggler({ settings }: Props) {
             key={href}
             href={url}
             className={classnames(
-              "px-4 h-10 border grid place-content-center",
+              "grid h-10 place-content-center border px-4",
               { "bg-gray-200": isActive },
             )}
           >

@@ -27,7 +27,7 @@ export function SmallMonthView({
         </div>
         <div className="col-span-2 grid grid-cols-2">
           <button
-            className="h-7 w-7 rounded-full transition duration-300 grid place-content-center hover:bg-gray-100"
+            className="grid h-7 w-7 place-content-center rounded-full transition duration-300 hover:bg-gray-100"
             onClick={() => {
               const _date = getPrevMonth(currentDate);
               setDate(_date);
@@ -36,7 +36,7 @@ export function SmallMonthView({
             <ChevronLeft className="stroke-gray-700" size={16} />
           </button>
           <button
-            className="h-7 w-7 rounded-full transition duration-300 grid place-content-center hover:bg-gray-100"
+            className="grid h-7 w-7 place-content-center rounded-full transition duration-300 hover:bg-gray-100"
             onClick={() => {
               const _date = getNextMonth(currentDate);
               setDate(_date);
@@ -46,7 +46,7 @@ export function SmallMonthView({
           </button>
         </div>
       </div>
-      <div className="w-full grid grid-cols-7">
+      <div className="grid w-full grid-cols-7">
         {month.map((row, index) => (
           <React.Fragment key={index}>
             {row.map((day, idx) => (

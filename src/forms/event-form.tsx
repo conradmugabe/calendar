@@ -42,7 +42,7 @@ export function CreateEventForm({ onClose }: Props) {
           type="text"
           {...register("title")}
           placeholder="Add title"
-          className="pt-3 pb-1 border-0 text-gray-600 text-xl font-normal w-full border-b-2 border-gray-200 placeholder:text-gray-400 focus:outline-none focus:ring-0 focus:border-blue-500"
+          className="w-full border-0 border-b-2 border-gray-200 pb-1 pt-3 text-xl font-normal text-gray-600 placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-0"
         />
         <Clock4 size={20} />
         {/* <p>{selectedDay.format("dddd, MMMM DD")}</p> */}
@@ -52,7 +52,7 @@ export function CreateEventForm({ onClose }: Props) {
           rows={3}
           placeholder="Add a description"
           {...register("description")}
-          className="bg-gray-100 rounded-md text-sm p-2 resize-none focus:outline-none focus:ring-0 focus:border-blue-500"
+          className="resize-none rounded-md bg-gray-100 p-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-0"
         />
         <AlignLeft size={20} />
         <div className="flex items-center gap-1">
@@ -64,11 +64,11 @@ export function CreateEventForm({ onClose }: Props) {
                 onClick={() => setValue("label", label)}
                 className={classnames(
                   label,
-                  "h-6 w-6 rounded-full cursor-pointer grid place-content-center",
+                  "grid h-6 w-6 cursor-pointer place-content-center rounded-full",
                 )}
               >
                 {isSelected && (
-                  <span className="material-symbols-outlined text-white text-xl font-bold">
+                  <span className="material-symbols-outlined text-xl font-bold text-white">
                     check
                   </span>
                 )}
@@ -77,8 +77,8 @@ export function CreateEventForm({ onClose }: Props) {
           })}
         </div>
       </div>
-      <div className="p-4 border-t w-full flex flex-col">
-        <button className="self-end text-white bg-blue-500 h-10 px-4 rounded text-sm hover:bg-blue-600">
+      <div className="flex w-full flex-col border-t p-4">
+        <button className="h-10 self-end rounded bg-blue-500 px-4 text-sm text-white hover:bg-blue-600">
           Save
         </button>
       </div>

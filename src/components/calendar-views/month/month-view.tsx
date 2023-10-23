@@ -9,7 +9,7 @@ type Props = {
 
 export function MonthView({ month, urlDate }: Props) {
   return (
-    <div className="h-full w-ful grid grid-cols-7">
+    <div className="w-ful grid h-full grid-cols-7">
       {month.map((row, index) => (
         <React.Fragment key={index}>
           {row.map((day, idx) => (

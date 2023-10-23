@@ -18,11 +18,11 @@ export function DayView({ dateProps }: Props) {
   const isToday = dayjs().format("YYYY-MM-DD") === day.format("YYYY-MM-DD");
 
   return (
-    <section className="h-full w-full flex flex-col">
-      <header className="py-2 flex flex-col justify-center">
+    <section className="flex h-full w-full flex-col">
+      <header className="flex flex-col justify-center py-2">
         <h3
           className={classnames(
-            "text-xs text-center uppercase font-medium w-12",
+            "w-12 text-center text-xs font-medium uppercase",
             {
               "text-blue-600": isToday,
               "text-gray-600": !isToday,
@@ -33,8 +33,8 @@ export function DayView({ dateProps }: Props) {
         </h3>
         <h3
           className={classnames(
-            "h-12 w-12 text-2xl grid place-content-center rounded-full",
-            { "text-white bg-blue-600": isToday },
+            "grid h-12 w-12 place-content-center rounded-full text-2xl",
+            { "bg-blue-600 text-white": isToday },
           )}
         >
           {day.format("D")}

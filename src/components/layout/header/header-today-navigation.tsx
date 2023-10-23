@@ -26,7 +26,7 @@ export function HeaderTodayNavigation() {
   return (
     <button
       onClick={handleOnClick}
-      className="h-9 px-4 border border-gray-300 rounded text-sm font-medium grid place-content-center transition duration-300 hover:bg-gray-100"
+      className="grid h-9 place-content-center rounded border border-gray-300 px-4 text-sm font-medium transition duration-300 hover:bg-gray-100"
     >
       Today
     </button>

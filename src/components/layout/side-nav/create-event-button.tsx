@@ -21,7 +21,7 @@ export function CreateEventButton() {
   return (
     <>
       <button
-        className="h-14 px-8 flex items-center gap-3 rounded-full shadow-md shadow-black/20 transition duration-300 hover:shadow-lg hover:shadow-black/25"
+        className="flex h-14 items-center gap-3 rounded-full px-8 shadow-md shadow-black/20 transition duration-300 hover:shadow-lg hover:shadow-black/25"
         onClick={() => {
           onOpen();
         }}
@@ -31,14 +31,14 @@ export function CreateEventButton() {
       </button>
       <Overlay isOpen={isOpen} onClose={onClose}>
         <div
-          className="w-96 bg-white rounded-md overflow-hidden shadow-md"
+          className="w-96 overflow-hidden rounded-md bg-white shadow-md"
           onClick={(e) => e.stopPropagation()}
         >
           <div className="flex items-center justify-between bg-gray-100 px-4 py-2">
             <div />
             <button
               onClick={() => onClose()}
-              className="h-6 w-6 grid place-content-center rounded-full transition duration-300 hover:bg-gray-200"
+              className="grid h-6 w-6 place-content-center rounded-full transition duration-300 hover:bg-gray-200"
             >
               <X size={16} />
             </button>

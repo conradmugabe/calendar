@@ -9,7 +9,7 @@ export async function Header() {
   const settings = await calendarSettingsService.get();
 
   return (
-    <header className="p-4 border-b">
+    <header className="border-b p-4">
       <nav className="flex items-center">
         <Logo />
         <div className="ml-32 flex items-center gap-8">

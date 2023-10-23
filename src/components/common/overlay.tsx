@@ -9,7 +9,7 @@ export default function Overlay({ children, isOpen, onClose }: Props) {
 
   return (
     <div
-      className="fixed h-screen w-screen left-0 -top-8 z-50 overflow-y-hidden grid place-content-center"
+      className="fixed -top-8 left-0 z-50 grid h-screen w-screen place-content-center overflow-y-hidden"
       onClick={(e) => {
         e.preventDefault();
         onClose();

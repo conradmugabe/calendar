@@ -16,12 +16,12 @@ export function MonthDayView({ day: _day, index, urlDate }: Props) {
     dayjs(urlDate).format("YYYY-MM") === day.format("YYYY-MM");
 
   return (
-    <div className="flex flex-col py-2 border-l border-b">
+    <div className="flex flex-col border-b border-l py-2">
       <header className="flex flex-col text-xs font-medium">
         {index === 0 && (
           <div className="text-center uppercase">{day.format("ddd")}</div>
         )}
-        <div className="self-center flex items-center gap-1">
+        <div className="flex items-center gap-1 self-center">
           <p
             className={classnames({
               "text-black": isSameMonth,
@@ -33,8 +33,8 @@ export function MonthDayView({ day: _day, index, urlDate }: Props) {
           <Link
             href={`/day/${day.year()}/${day.month() + 1}/${day.date()}`}
             className={classnames(
-              "w-6 h-6 grid place-content-center rounded-full transition duration-300 ",
-              { "text-white bg-blue-500 hover:bg-blue-600": isToday },
+              "grid h-6 w-6 place-content-center rounded-full transition duration-300 ",
+              { "bg-blue-500 text-white hover:bg-blue-600": isToday },
               { "hover:bg-gray-200": !isToday },
               { "text-black": isSameMonth && !isToday },
               { "text-gray-500": !isSameMonth },

@@ -15,10 +15,10 @@ export function WeekDayView({ date }: Props) {
 
   return (
     <article>
-      <header className="py-2 flex flex-col justify-center">
+      <header className="flex flex-col justify-center py-2">
         <h3
           className={classnames(
-            "text-xs text-center uppercase font-medium w-12",
+            "w-12 text-center text-xs font-medium uppercase",
             {
               "text-blue-600": isToday,
               "text-gray-600": !isToday,
@@ -30,8 +30,8 @@ export function WeekDayView({ date }: Props) {
         <Link
           href={`/day/${day.year()}/${day.month() + 1}/${day.date()}`}
           className={classnames(
-            "h-12 w-12 text-2xl grid place-content-center rounded-full transition duration-300",
-            { "text-white bg-blue-500 hover:bg-blue-600": isToday },
+            "grid h-12 w-12 place-content-center rounded-full text-2xl transition duration-300",
+            { "bg-blue-500 text-white hover:bg-blue-600": isToday },
             { "text-gray-500 hover:bg-gray-200": !isToday },
           )}
         >

@@ -17,13 +17,13 @@ export function HeaderNavigation({ settings }: Props) {
   return (
     <>
       <button
-        className="h-9 w-9 rounded-full transition duration-300 grid place-content-center hover:bg-gray-100"
+        className="grid h-9 w-9 place-content-center rounded-full transition duration-300 hover:bg-gray-100"
         onClick={() => moveToPrev()}
       >
         <ChevronLeft className="stroke-gray-700" />
       </button>
       <button
-        className="h-9 w-9 rounded-full transition duration-300 grid place-content-center hover:bg-gray-100"
+        className="grid h-9 w-9 place-content-center rounded-full transition duration-300 hover:bg-gray-100"
         onClick={() => {
           moveToNext();
         }}
