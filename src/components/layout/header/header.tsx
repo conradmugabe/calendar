@@ -4,6 +4,7 @@ import { HeaderDateLabel } from "@/components/layout/header/header-date-label";
 import { HeaderTodayNavigation } from "@/components/layout/header/header-today-navigation";
 import { CalendarViewToggler } from "@/components/layout/header/header-view-toggler";
 import { calendarSettingsService } from "@/calendar";
+import { ProfileDropdown } from "@/components/compound/profile-dropdown";
 
 export async function Header() {
   const settings = await calendarSettingsService.get();
@@ -19,8 +20,9 @@ export async function Header() {
           </div>
           <HeaderDateLabel />
         </div>
-        <div className="ml-auto">
+        <div className="ml-auto flex items-center space-x-2">
           <CalendarViewToggler settings={settings} />
+          <ProfileDropdown />
         </div>
       </nav>
     </header>
