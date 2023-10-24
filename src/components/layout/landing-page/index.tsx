@@ -1,6 +1,8 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import { Logo } from "@/components/common/logo";
+import calendarViewPic from "../../../../public/calendar.png";
 
 export function LandingPage() {
   return (
@@ -41,7 +43,15 @@ export function LandingPage() {
             </div>
           </div>
         </div>
-        <div className="relative mt-16 h-full rounded-3xl bg-black"></div>
+        <div className="relative mt-16 h-full overflow-hidden rounded-3xl">
+          <Image
+            src={calendarViewPic}
+            alt="calendar view"
+            className="object-cover"
+            fill
+            priority
+          />
+        </div>
       </div>
     </section>
   );
