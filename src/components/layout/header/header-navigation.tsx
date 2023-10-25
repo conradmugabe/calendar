@@ -3,10 +3,10 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 import { useCalendarNavigation } from "@/hooks/use-calendar-navigation";
-import { CalendarSettings } from "@/calendar/services";
+import { TCalendarSettings } from "@/calendar/services";
 
 type Props = {
-  settings: CalendarSettings;
+  settings: TCalendarSettings;
 };
 
 export function HeaderNavigation({ settings }: Props) {
