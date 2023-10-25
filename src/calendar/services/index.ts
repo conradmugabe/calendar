@@ -1,22 +1,23 @@
-import axios from "axios";
+import { CalendarSettings } from "@/calendar/models/calendar-settings";
+import { User } from "@/calendar/models/user";
 
-export type CalendarSettings = {
+export type TCalendarSettings = {
   view: string;
+  userId: string;
 };
 
 export class CalendarSettingsService {
-  create = async (settings: CalendarSettings): Promise<CalendarSettings> => {
-    const response = await axios.post<CalendarSettings>(
-      process.env.CALENDAR_API_URL || "",
-      settings,
-    );
-    return response.data;
+  create = async (settings: TCalendarSettings): Promise<TCalendarSettings> => {
+    const _settings = new CalendarSettings(settings);
+    await _settings.save();
+    return settings;
   };
 
-  get = async (): Promise<CalendarSettings> => {
-    const response = await axios.get<CalendarSettings>(
-      process.env.CALENDAR_API_URL || "",
-    );
-    return response.data;
+  get = async ({ userId }: { userId: string }): Promise<TCalendarSettings> => {
+    const user = await User.findOne({ email: userId });
+    if (!user) throw new Error("Not Found");
+    const result = await CalendarSettings.findOne({ userId: user._id });
+
+    return { userId, view: result?.view || "month" };
   };
 }

@@ -14,9 +14,12 @@ import { getWeekView, getMonthView } from "@/calendar/utils";
 
 export default async function MainPage() {
   const session = await getServerSession(nextAuthOptions);
-  const settings = await calendarSettingsService.get();
 
-  if (session) {
+  if (session?.user) {
+    const settings = await calendarSettingsService.get({
+      userId: session.user.email || "",
+    });
+
     let view: React.ReactNode;
     if (settings.view === "day") {
       view = <DayView />;
