@@ -4,11 +4,11 @@ import Link from "next/link";
 import classnames from "classnames";
 import dayjs from "dayjs";
 
-import { CalendarSettings } from "@/calendar/services";
+import { TCalendarSettings } from "@/calendar/services";
 import { useCalendarUrl } from "@/hooks/use-calendar-url";
 
 type Props = {
-  settings: CalendarSettings;
+  settings: TCalendarSettings;
 };
 
 const links = [

@@ -5,9 +5,13 @@ import { HeaderTodayNavigation } from "@/components/layout/header/header-today-n
 import { CalendarViewToggler } from "@/components/layout/header/header-view-toggler";
 import { calendarSettingsService } from "@/calendar";
 import { ProfileDropdown } from "@/components/compound/profile-dropdown";
+import { getServerSession } from "next-auth";
 
 export async function Header() {
-  const settings = await calendarSettingsService.get();
+  const session = await getServerSession();
+  const settings = await calendarSettingsService.get({
+    userId: session?.user?.email || "",
+  });
 
   return (
     <header className="border-b p-4">
