@@ -16,9 +16,11 @@ export default async function MainPage() {
   const session = await getServerSession(nextAuthOptions);
 
   if (session?.user) {
-    const settings = await calendarSettingsService.get({
-      userId: session.user.email || "",
-    });
+    // const settings = await calendarSettingsService.get({
+    //   userId: session.user.email!,
+    // });
+
+    const settings = { view: "month" };
 
     let view: React.ReactNode;
     if (settings.view === "day") {

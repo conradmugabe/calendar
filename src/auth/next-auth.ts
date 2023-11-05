@@ -1,6 +1,7 @@
 import GoogleProvider from "next-auth/providers/google";
+import GitHubProvider from "next-auth/providers/github";
 import { AuthOptions } from "next-auth";
-import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
+import { MongoDBAdapter } from "@auth/mongodb-adapter";
 
 import mongodbClientPromise from "@/db/mongodb";
 
@@ -11,6 +12,10 @@ export const nextAuthOptions: AuthOptions = {
       clientId: process.env.GOOGLE_CLIENT_ID!,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
     }),
+    GitHubProvider({
+      clientId: process.env.GITHUB_ID!,
+      clientSecret: process.env.GITHUB_SECRET!,
+    }),
   ],
   session: { strategy: "database" },
   callbacks: {
@@ -18,4 +23,5 @@ export const nextAuthOptions: AuthOptions = {
       return { ...session, id: user.id };
     },
   },
+  theme: { colorScheme: "light" },
 };
