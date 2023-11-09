@@ -9,8 +9,9 @@ import { getServerSession } from "next-auth";
 
 export async function Header() {
   const session = await getServerSession();
+  const email = session?.user?.email;
   const settings = await calendarSettingsService.get({
-    userId: session?.user?.email || "",
+    userId: email || "",
   });
 
   return (
