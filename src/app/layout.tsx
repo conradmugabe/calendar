@@ -1,6 +1,8 @@
-import "./globals.css";
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
+
+import { AuthProvider } from "@/components/providers/AuthProvider";
+import "./globals.css";
 
 // import { initMock } from "../../mocks";
 
@@ -22,7 +24,9 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={font.className}>{children}</body>
+      <AuthProvider>
+        <body className={font.className}>{children}</body>
+      </AuthProvider>
     </html>
   );
 }

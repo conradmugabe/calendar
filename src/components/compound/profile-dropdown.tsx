@@ -1,42 +1,11 @@
-import { Link } from "lucide-react";
-import { getServerSession } from "next-auth";
+"use client";
 
-import { nextAuthOptions } from "@/auth/next-auth";
-import {
-  Avatar,
-  AvatarImage,
-  AvatarFallback,
-} from "@/components/common/avatar";
-import {
-  DropdownMenu,
-  DropdownMenuTrigger,
-  DropdownMenuContent,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuItem,
-} from "@/components/common/dropdown-menu";
+import { UserButton, useUser } from "@clerk/nextjs";
 
-export async function ProfileDropdown() {
-  const session = await getServerSession(nextAuthOptions);
-  const user = session?.user;
+export function ProfileDropdown() {
+  const { isLoaded, user } = useUser();
 
-  return (
-    <DropdownMenu>
-      <DropdownMenuTrigger className="rounded-full">
-        <Avatar className="h-8 w-8 md:h-10 md:w-10">
-          <AvatarImage src={user?.image || ""} alt={user?.name || ""} />
-          <AvatarFallback>CN</AvatarFallback>
-        </Avatar>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent className="bg-white">
-        <DropdownMenuLabel>{user?.email}</DropdownMenuLabel>
-        <DropdownMenuSeparator />
-        <DropdownMenuItem>
-          <Link href="/api/auth/signout" className="">
-            Logout
-          </Link>
-        </DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
-  );
+  if (isLoaded && user) return <UserButton afterSignOutUrl="/" />;
+
+  return <div>Loading...</div>;
 }

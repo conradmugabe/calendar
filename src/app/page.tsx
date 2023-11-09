@@ -1,6 +1,5 @@
-import { getServerSession } from "next-auth";
+import { auth } from "@clerk/nextjs";
 
-import { nextAuthOptions } from "@/auth/next-auth";
 import { LandingPage } from "@/components/layout/landing-page";
 import { AppMainTemplate } from "@/components/layout";
 import { calendarSettingsService } from "@/calendar";
@@ -13,12 +12,11 @@ import {
 import { getWeekView, getMonthView } from "@/calendar/utils";
 
 export default async function MainPage() {
-  const session = await getServerSession(nextAuthOptions);
-  const email = session?.user?.email;
+  const { userId } = auth();
 
-  if (email) {
+  if (userId) {
     const settings = await calendarSettingsService.get({
-      userId: email,
+      userId,
     });
 
     let view: React.ReactNode;

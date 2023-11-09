@@ -1,3 +1,5 @@
+import { auth } from "@clerk/nextjs";
+
 import { Logo } from "@/components/common/logo";
 import { HeaderNavigation } from "@/components/layout/header/header-navigation";
 import { HeaderDateLabel } from "@/components/layout/header/header-date-label";
@@ -5,14 +7,12 @@ import { HeaderTodayNavigation } from "@/components/layout/header/header-today-n
 import { CalendarViewToggler } from "@/components/layout/header/header-view-toggler";
 import { calendarSettingsService } from "@/calendar";
 import { ProfileDropdown } from "@/components/compound/profile-dropdown";
-import { getServerSession } from "next-auth";
 
 export async function Header() {
-  const session = await getServerSession();
-  const email = session?.user?.email;
-  const settings = await calendarSettingsService.get({
-    userId: email || "",
-  });
+  const { userId } = auth();
+  if (!userId) return null;
+
+  const settings = await calendarSettingsService.get({ userId });
 
   return (
     <header className="border-b p-4">

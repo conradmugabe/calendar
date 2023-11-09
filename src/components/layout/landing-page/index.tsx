@@ -12,7 +12,7 @@ export function LandingPage() {
           <Link href="/">
             <Logo />
           </Link>
-          <Link href="/api/auth/signin">
+          <Link href="/sign-in">
             <button className="h-10 whitespace-nowrap rounded-md bg-gray-800 px-4 text-sm font-medium text-white hover:shadow-lg">
               Log in
             </button>
