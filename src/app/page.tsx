@@ -14,29 +14,25 @@ import { getWeekView, getMonthView } from "@/calendar/utils";
 export default async function MainPage() {
   const { userId } = auth();
 
-  if (userId) {
-    const settings = await calendarSettingsService.get({
-      userId,
-    });
-
-    let view: React.ReactNode;
-    if (settings.view === "day") {
-      view = <DayView />;
-    }
-    if (settings.view === "week") {
-      const week = getWeekView();
-      view = <WeekView week={week} />;
-    }
-    if (settings.view === "year") {
-      view = <YearView />;
-    } else {
-      const month = getMonthView();
-      const urlDate = new Date();
-      view = <MonthView month={month} urlDate={urlDate} />;
-    }
-
-    return <AppMainTemplate>{view}</AppMainTemplate>;
+  if (!userId) {
+    return <LandingPage />;
   }
 
-  return <LandingPage />;
+  const settings = await calendarSettingsService.get({ userId });
+  let view: React.ReactNode;
+
+  if (settings.view === "day") {
+    view = <DayView />;
+  } else if (settings.view === "week") {
+    const week = getWeekView();
+    view = <WeekView week={week} />;
+  } else if (settings.view === "year") {
+    view = <YearView />;
+  } else {
+    const month = getMonthView();
+    const urlDate = new Date();
+    view = <MonthView month={month} urlDate={urlDate} />;
+  }
+
+  return <AppMainTemplate>{view}</AppMainTemplate>;
 }
