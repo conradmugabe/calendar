@@ -5,6 +5,21 @@ export type TCalendarSettings = {
   userId: string;
 };
 
+export type NewEvent = {
+  userId: string;
+  title: string;
+  description: string;
+};
+
+export type Event = {
+  id: string;
+  userId: string;
+  title: string;
+  description: string;
+  createdAt: Date;
+  updatedAt: Date;
+};
+
 export class CalendarSettingsService {
   update = async ({
     userId,
@@ -26,5 +41,20 @@ export class CalendarSettingsService {
       await client.db.settings.create({ userId, view: defaultView });
     }
     return { userId, view: userSettings?.view || defaultView };
+  };
+}
+
+export class CalendarEventService {
+  create = async (event: NewEvent): Promise<Event> => {
+    const client = getXataClient();
+    const newEvent = await client.db.events.create(event);
+    return {
+      id: newEvent.id,
+      userId: newEvent.userId || "",
+      title: newEvent.title || "",
+      description: newEvent.description || "",
+      createdAt: newEvent.xata.createdAt,
+      updatedAt: newEvent.xata.updatedAt,
+    };
   };
 }

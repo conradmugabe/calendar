@@ -14,6 +14,14 @@ const tables = [
       { name: "view", type: "string", notNull: true, defaultValue: "month" },
     ],
   },
+  {
+    name: "events",
+    columns: [
+      { name: "title", type: "string" },
+      { name: "description", type: "text" },
+      { name: "userId", type: "string", unique: true },
+    ],
+  },
 ] as const;
 
 export type SchemaTables = typeof tables;
@@ -22,8 +30,12 @@ export type InferredTypes = SchemaInference<SchemaTables>;
 export type Settings = InferredTypes["settings"];
 export type SettingsRecord = Settings & XataRecord;
 
+export type Events = InferredTypes["events"];
+export type EventsRecord = Events & XataRecord;
+
 export type DatabaseSchema = {
   settings: SettingsRecord;
+  events: EventsRecord;
 };
 
 const DatabaseClient = buildClient();
