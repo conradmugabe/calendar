@@ -26,10 +26,12 @@ export function CalendarViewToggler({ settings }: Props) {
     dayjs().format("YYYY-MM-DD") === dayjs(date).format("YYYY-MM-DD");
 
   async function handleViewChange(props: { view: string; url: string }) {
-    await axios.patch("/api/v1/settings", {
-      view: props.view,
-      userId: settings.userId,
-    });
+    if (props.view !== view) {
+      await axios.patch("/api/v1/settings", {
+        view: props.view,
+        userId: settings.userId,
+      });
+    }
     router.push(props.url);
   }
 

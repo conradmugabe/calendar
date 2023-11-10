@@ -13,8 +13,9 @@ export class CalendarSettingsService {
     const client = getXataClient();
     const filter = client.db.settings.filter({ userId });
     const userSettings = await filter.getFirst();
+    const updatedUserSettings = await userSettings?.update({ view });
 
-    return { userId, view };
+    return { userId, view: updatedUserSettings?.view || view };
   };
 
   get = async ({ userId }: { userId: string }): Promise<TCalendarSettings> => {
