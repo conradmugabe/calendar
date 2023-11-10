@@ -1,0 +1,6 @@
+{
+  "databaseURL": "https://Davidson-Conrad-s-workspace-rongcb.us-east-1.xata.sh/db/calendar",
+  "codegen": {
+    "output": "src/db/index.ts"
+  }
+}

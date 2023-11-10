@@ -20,6 +20,9 @@ dependencies:
   "@radix-ui/react-slot":
     specifier: ^1.0.2
     version: 1.0.2(@types/react@18.2.37)(react@18.2.0)
+  "@xata.io/client":
+    specifier: ^0.27.0
+    version: 0.27.0(typescript@5.2.2)
   class-variance-authority:
     specifier: ^0.7.0
     version: 0.7.0
@@ -1627,6 +1630,17 @@ packages:
         integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==,
       }
     dev: true
+
+  /@xata.io/client@0.27.0(typescript@5.2.2):
+    resolution:
+      {
+        integrity: sha512-tmmV4w7crXMtM/brizVUbg5u1eKPjagoSqt5ydSIe8xyi6VtHRGHTvZkeBNEHh8PaMAjjyRS2DsLgI59LASINg==,
+      }
+    peerDependencies:
+      typescript: ">=4.5"
+    dependencies:
+      typescript: 5.2.2
+    dev: false
 
   /@xmldom/xmldom@0.8.10:
     resolution:
@@ -5995,7 +6009,6 @@ packages:
       }
     engines: { node: ">=14.17" }
     hasBin: true
-    dev: true
 
   /unbox-primitive@1.0.2:
     resolution:
