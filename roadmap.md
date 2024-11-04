@@ -67,3 +67,25 @@ sequenceDiagram
 1. Calendar Views:
     - Daily, weekly, and monthly views
     - Toggle between multiple calendars (personal, work, shared)
+
+## API Design and Endpoints
+
+### Auth Service
+`POST /auth/login`: Login and get a JWT token
+
+`POST /auth/register`: Register a new user
+
+### User Service
+`GET /users/me`: Fetch user details
+
+### Event Service
+`POST /events` Create a new event
+
+`GET /events/:id` Fetch details of an event
+
+`PUT /events/:id` Update an existing event
+
+`DELETE /events/:id` Delete an event
+
+### Notification Service
+`WS /notifications/:userId?token={token}` Listen for real-time notifications
