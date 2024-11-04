@@ -1,5 +1,7 @@
 # 📑 Calendar – Technical Plan
+
 ## Authentication and Authorization
+
 ### Authentication
 A user accesses the platform using an external auth provider. The application will have OAuth to allow users to use platforms like Google, Apple, Facebook, GitHub, etc to access their accounts.
 
@@ -27,3 +29,15 @@ sequenceDiagram
 
     Web-Application ->> Web-Application: Access token is added to the user's browser cookies
 ```
+
+## Technology Stack
+
+### Frontend:
+- React + TypeScript (for modular, scalable, and type-safe UI)
+- React Context API for client application state.
+- React Query to sync server and client state
+- TailwindCSS (for consistent and responsive styling)
+
+### Testing:
+- Vitest + React Testing Library (for frontend unit testing)
+- Playwright for end-to-end testing
