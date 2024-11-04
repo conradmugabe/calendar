@@ -41,3 +41,29 @@ sequenceDiagram
 ### Testing:
 - Vitest + React Testing Library (for frontend unit testing)
 - Playwright for end-to-end testing
+
+## Feature Breakdown and Module Design
+
+### Core Modules
+
+1. User Management
+   - User profile creation, management, and preferences
+   - Authentication using Firebase or Cognito
+   - OAuth2 integration (e.g., Google login)
+
+1. Calendar Events:
+    - Create, edit, delete, and view events
+    - Support for recurring events
+    - Color-coding and categorization of events
+
+1. Notifications & Reminders:
+    - Email and push notifications for upcoming events
+    - Real-time alerts using WebSockets
+
+1. Sharing & Collaboration:
+   - Share events with other users
+   - Collaborate on shared schedules with permissions (view-only, edit access)
+
+1. Calendar Views:
+    - Daily, weekly, and monthly views
+    - Toggle between multiple calendars (personal, work, shared)
